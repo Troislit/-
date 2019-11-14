@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://pandao.github.io/editor.md/en.html -->
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface no-generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="keywords" content="Editor.md,editor,Markdown Editor,Markdown,编辑器,Markdown编辑器,Markdown在线编辑器,在线编辑器,开源编辑器,开源Markdown编辑器">
+        <meta name="description" content="Editor.md: a simple online markdown editor. 开源在线 Markdown 编辑器">
+	    <meta name="author" content="pandao, pandao@vip.qq.com">
+        <title>Editor.md - Open source online Markdown editor.</title>
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="./Editor.md - Open source online Markdown editor._files/planeui.min.css">
+        <link rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/editormd.min.css">
+        <link rel="stylesheet" type="text/css" href="./Editor.md - Open source online Markdown editor._files/index.css">
+    <link type="text/css" rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/codemirror.min.css"><link type="text/css" rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/dialog.css"><link type="text/css" rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/matchesonscrollbar.css"><link type="text/css" rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/foldgutter.css"><script id="-lib-codemirror-codemirror-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/codemirror.min.js.загружено"></script><script id="-lib-codemirror-modes-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/modes.min.js.загружено"></script><script id="-lib-codemirror-addons-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/addons.min.js.загружено"></script><script id="-lib-marked-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/marked.min.js.загружено"></script><script id="-lib-prettify-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/prettify.min.js.загружено"></script><script id="-lib-raphael-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/raphael.min.js.загружено"></script><script id="-lib-underscore-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/underscore.min.js.загружено"></script><script id="-lib-flowchart-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/flowchart.min.js.загружено"></script><script id="-lib-jquery-flowchart-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/jquery.flowchart.min.js.загружено"></script><script id="-lib-sequence-diagram-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/sequence-diagram.min.js.загружено"></script><link type="text/css" rel="stylesheet" href="./Editor.md - Open source online Markdown editor._files/katex.min.css"><script id="-cdnjs-cloudflare-com-ajax-libs-KaTeX-0-3-0-katex-min" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/katex.min.js.загружено"></script><script id="-lib-plugins-image-dialog-image-dialog" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/image-dialog.js.загружено"></script><script id="-lib-plugins-preformatted-text-dialog-preformatted-text-dialog" type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/preformatted-text-dialog.js.загружено"></script></head>
+    <body style="">
+        <a name="top"></a>
+        <a href="https://pandao.github.io/editor.md/en.html#top" class="fa fa-arrow-circle-up fa-3x pui-text-blue-400" id="go-to-top" style="display: block;"></a>
+        <div class="pui-layout">
+            <header class="pui-bg-blue page-header">
+                <div class="pui-layout pui-layout-fixed pui-layout-fixed-1200 pui-layout-fixed-1360">
+                    <h1 class="pui-text-center pui-text-xxxxxl page-title animated zoomInDown">
+                        <a href="https://pandao.github.io/editor.md/index.html" class="pui-text-white">
+                            <i class="editormd-logo editormd-logo-2x"></i><strong>Editor.md</strong>
+                        </a>
+                    </h1>
+                    <p class="pui-text-center pui-text-xl animated zoomInDown">Open source online Markdown editor.</p>
+                    <menu class="pui-text-center page-menu animated zoomInDown">
+                        <ul class="pui-menu pui-menu-inline pui-menu-radius">
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#download"><i class="fa fa-cloud-download"></i> Download</a>
+                            </li>
+                            <li>
+                                <a href="http://editor.md.ipandao.com/examples/index.html"><i class="fa fa-flask"></i> Examples <i class="pui-arrow-down"></i></a>
+                                <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/simple.html">Simple example</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/full.html">Full example</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/html-preview-markdown-to-html.html">Markdown To HTML</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/form-get-value.html">Get value on Form</a>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;">Markdown Extras</a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/toc.html">ToC (Table of Contents)</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/task-lists.html">GFM task lists</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/emoji.html">Emoji</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/@links.html">@Links</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/katex.html">TeX (KaTeX)</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/flowchart.html">FlowChart</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/sequence-diagram.html">Sequence diagram</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/html-tags-decode.html">HTML tags decode</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;">Custom Editor.md</a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/define-plugin.html">Define plugin</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/themes.html">Custom editor theme</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/custom-toolbar.html">Custom toolbar</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/custom-keyboard-shortcuts.html">Custom keyboard shortcuts</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/change-mode.html">Change mode</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/manually-load-modules.html">Manually load modules</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/multi-editormd.html">Multi Editor.md</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/readonly.html">Read only mode</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/code-fold.html">Code fold</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/sync-scrolling.html">Bisync / Single sync scrolling</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/external-use.html">External using method</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/multi-languages.html">Multi-languages</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/auto-height.html">Auto height</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/dynamic-create-editormd.html">Dynamic create Editor.md</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/search-replace.html">Search / Replace</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/set-get-replace-selection.html">Insert value, Set/Get/Replace selection text</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;">Event handle</a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/on-off.html">On / Off (bind/unbind)</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onload.html">Onload</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onchange.html">Onchange</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onresize.html">Onresize</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onfullscreen.html">Onfullscreen / OnfullscreenExit</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onpreviewing-onpreviewed.html">Onpreviewing / Onpreviewed</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onwatch-onunwatch.html">Onwatch / Onunwatch</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/onscroll-onpreviewscroll.html">Onscroll / Onpreviewscroll</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;">Image upload</a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/image-upload.html">Same domain upload</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/image-cross-domain-upload.html">Cross-domain upload</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:;">Using Require.js, Sea.js, Zepto.js</a>
+                                        <ul class="pui-menu pui-menu-dropdown pui-z-depth-2">
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-requirejs.html">Using Require.js</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-seajs.html">Using Sea.js</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://editor.md.ipandao.com/examples/use-zepto.html">Using Zepto.js</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="http://editor.md.ipandao.com/examples/index.html">More...</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#dependents"><i class="fa fa-gears"></i> Dependents</a>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/en.html#license"><i class="fa fa-check"></i> License</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md/blob/master/CHANGE.md" target="_blank"><i class="fa fa-refresh"></i> Changes</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md/issues" target="_blank"><i class="fa fa-question-circle"></i> Issues</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/pandao/editor.md" target="_blank"><i class="fa fa-github"></i> Github</a>
+                            </li>
+                            <li>
+                                <a href="https://gitee.com/pandao/editor.md" target="_blank"><i class="fa fa-git"></i> Git@OSC</a>
+                            </li>
+                            <li>
+                                <a href="https://pandao.github.io/editor.md/index.html"><i class="fa fa-language"></i> 中文版</a>
+                            </li>
+                        </ul>
+                    </menu>   
+                    <div class="page-header-container">
+                        <div class="editormd pui-z-depth-3 pui-bg-white editormd-vertical" id="index-editormd" style="width: 100%; height: 580px;"><textarea class="editormd-markdown-textarea" placeholder="Enjoy Markdown! coding now..." name="index-editormd-markdown-doc" style="display: none;">МИНИСТЕРСТВО НАУКИ  И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ  
+Федеральное государственное автономное образовательное учреждение высшего образования  
+"КРЫМСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ им. В. И. ВЕРНАДСКОГО"  
+ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ  
+Кафедра компьютерной инженерии и моделирования
+&lt;br/&gt;&lt;br/&gt;
+​
+### Отчёт по лабораторной работе № 1&lt;br/&gt; по дисциплине "Программирование"
+&lt;br/&gt;
+​
+студента 1 курса группы ИВТ-191(2)
+Тройслит Андрея Александровича
+направления подготовки 09.03.01"Информатика и Вычислительная техника"  
+&lt;br/&gt;
+​
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Научный руководитель&lt;br/&gt; старший преподаватель кафедры&lt;br/&gt; компьютерной инженерии и моделирования&lt;/td&gt;
+&lt;td&gt;(оценка)&lt;/td&gt;
+&lt;td&gt;Чабанов В.В.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;
+​
+Симферополь, 2019
+
+#Ход работы
+####1.Как создать консольное приложение C++.
+Для начала необходимо открыть Visual Studio:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.1%20%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B0%D1%8F%20VS.png?raw=true)
+Рис.1Открытая VS.
+
+Далее выбираем "Создание проекта":
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.2%20%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D0%BE.png?raw=true)
+Рис.2 Начало.
+
+Далее выбираем "Консольное приложение" поскольку в данной лабораторной работе необходимо именно это.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.3%20%D0%9A%D0%BE%D0%BD%D1%81%D0%BE%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5.png?raw=true)
+Рис.3 Консольное приложение.
+Далее щелкаем на "Поместить решение и проект в одном каталоге",если хотим чтобы все необходимые файлы были в 1 папке,потом жмем кнопку "Создать".
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.4%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D0%BE%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0..png?raw=true)
+Рис.4 Создание консольного проекта.
+####2.1Как изменить цветовую схему (оформление) среды?
+1.Заходим в Visual Studio.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.5%20%D0%9F%D1%83%D1%81%D1%82%D0%B0%D1%8F%20VS.png?raw=true)
+Рис.5 Открытая VS
+2.Далее выбираем вкладку "Средства"-&gt;"Параметры".
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.6%20%D0%9F%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%20%D0%BA%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B5.png?raw=true)
+Рис.6 Переход к графике.
+Далее,в открывшемся окне выбираем: "Окружение"-&gt;"Общие"-&gt;"Цветовая схема", и уже меняем цветовую схему в тех тонах которые на подходят.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.7%20%D0%A1%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%86%D0%B2.%D1%81%D1%85%D0%B5%D0%BC%D1%8B.png?raw=true)
+Рис.7Смена цв.схемы.
+#### 3. Как закомментировать/раскомментировать блок кода средствами VS;
+1.Для того чтобы закомментировать\раскомментировать блок кода,необходимо:открыть проект:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.8%20%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.png?raw=true)
+Рис.8 Открытый проект.
+2.Для того чтобы закомментировать часть кода необходимо поставить символ '/+(Shift+8)'  и '(Shift+8)+/' где должно заканчиваться.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.9%201.%D0%9A%D0%BE%D0%BC%D0%BC..png?raw=true)
+Рис.9 1.Комм.
+3.Либо можно возпользоваться "горячими" клавишами: Ctrl+K,Ctrl+C.Результат от этого не измениться.
+4.Для того чтобы закомментировать только 1 строку необходимо поставить символ '//'  тогда все что находится в этой строке далее,будет закомментированно
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.%209.1%202.%D0%9A%D0%BE%D0%BC%D0%BC..png?raw=true)
+Рис.9.1 2.Комм.
+####4. Как открыть в проводнике Windows папку с проектом средствами VS?
+1.Открываем обозреватель решений  находим проект который нам надо найти в проводнике Windows.В моем случае это был ConsoleApplication1.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.11%20%D0%9E%D0%B1%D0%BE%D0%B7%D1%80%D0%B5%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9.png?raw=true)
+Рис.11 Обозреватель решений
+2.Щелкаем ПКМ по нашему проекту и выбираем "Открыть папку в проводнике"
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.12%20%D0%9E%D0%B1%D0%BE%D0%B7%D1%80%D0%B5%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B9%E2%84%962.png?raw=true)
+Рис.11 Обозреватель решений№2
+####5.Какое расширение файла-проекта используется в VS?
+1.Для того чтобы посмотреть какое расширение используется,необходимо открыть папку с проетом,как это сделать было сказано выше.Открываем папку:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.13%20%D0%9F%D0%B0%D0%BF%D0%BA%D0%B0%20%D1%81%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%BC.png?raw=true)
+Рис.13 Папка с проектом
+2.Далее ПКМ по файлу с названием проекта ,в данном случае 'Project1',и жмем кнопку "Свойства":
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.13%20%D0%9F%D0%B0%D0%BF%D0%BA%D0%B0%20%D1%81%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%BC1.png?raw=true)
+Рис.13 Папка с проектом1
+Как видно из свойтв файла-тип этого файла "Visual Studio Solution" что говорит о том,что данный файл для своего запуска требует программу Visual Studio
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.13%20%D0%9F%D0%B0%D0%BF%D0%BA%D0%B0%20%D1%81%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%BC2png.png?raw=true)
+Рис13.Папка с проектом2.
+####6.Как запустить код без отладки (не менее 2 способов)?
+1.Первый способ-сочетание клавишей Ctrl+F5.
+2.Второй способ-вручную:открываем "Отладка"-&gt;"Запуск без отладки":
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.14%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%BB%D0%B0%D0%B4%D0%BA%D0%B8..png?raw=true)
+Рис.14 Запуск без отладки.
+####7.Как запустить код в режиме отладки (не менее 2 способов)?
+1.Первый способ-клавишей F5.
+2.Второй способ-вручную:открываем "Отладка"-&gt;"Начать отладку".
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.15%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%81%20%D0%BE%D1%82%D0%BB%D0%B0%D0%B4%D0%BA%D0%BE%D0%B9..png?raw=true)
+Рис.15 Запуск с отладкой.
+####8. Как установить/убрать точку останова (breakpoint)?
+1.Для того чтобы поставить точку brealpoint необходимо нажать ЛКМ по столбику слева от строчек кода,появится красный кружок,это означает что точка breakpoint установлена:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81.16.%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20breakpoint.png?raw=true)
+Рис.16 Установка breakpoint.
+####9.Создание программы.
+1.Создать программу со следующим кодом:
+    #include &lt;iostream&gt;
+    int main() {
+        int i;
+        i = 5;
+        std::cout &lt;&lt; i;
+        return 0;
+    }
+Рисунок:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2017.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0.1.png?raw=true)
+Рис.17 Программа1
+2.Далее устанавливаем breakpoint на 5 и 6 строке(в моем случае на 4 и 5):
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2017.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B02.png?raw=true)
+Рис.17 Программа2
+3.Далее запускаем программу и смотрим какие значения принимает переменная i в 4 и 5 строке:
+В 4 строке i это переменная типа int равная -858993460:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2017.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B03.png?raw=true)
+Рис.17 Программа3
+В 6 строке i это int равная 5:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2017.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B04.png?raw=true)
+Рис.17 Программа4
+####10.Выполните задание 9 изменив программу на следующую.
+    #include &lt;iostream&gt;
+    int main() {
+        double i;
+        i = 5;
+        std::cout &lt;&lt; i;
+        return 0;
+    }
+1.Повторяем пункты 1-2 из задания 9.
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B01.png?raw=true)
+Рис.18 Программа1
+2.Запускаем программу и видм что i в 4 строке i это переменная типа double и не равна 5:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B02.png?raw=true)
+Рис 18 Программа2
+3.На следующей строке i это 5.000:
+![](https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B03.png?raw=true)
+Рис.18 Программа 3
+###Вывод:
+В данной лабораторной работе я смог больше узнать о программе VisualStudio,поближе познакомиться с ее функциями и возможностями.Мы выяснили какого типа файлы использует VisualStudio для хранения проектов.Я получил знания о том как отлаживать свой код построчно,попутно мониторя то как меняются переменные с течением времени.</textarea><div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 13px; width: 681px; margin-top: 43px; height: 538px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 506px; left: 374.762px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px; display: block;"><div style="min-width: 1px; height: 5998px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 50px; margin-bottom: -6px; border-right-width: 24px; min-height: 5994px; padding-right: 6px; padding-bottom: 0px;"><div style="position: relative; top: 5127.2px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>112</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>97</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>103</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 324.762px; top: 834.8px; height: 23.6px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">115</div></div><pre class=""><span style="padding-right: 0.1px;">Рис.17 Программа4</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">116</div><div class="CodeMirror-gutter-elt" style="left: 40px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-header cm-header-4">####10.Выполните задание 9 изменив программу на следующую.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">117</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">#include &lt;iostream&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">118</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">int main() {</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">119</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-comment">double i;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">120</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-comment">i = 5;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">121</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-comment">std::cout &lt;&lt; i;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">122</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-comment">return 0;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">123</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">}</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">124</div></div><pre class=""><span style="padding-right: 0.1px;">1.Повторяем пункты 1-2 из задания 9.</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">125</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">![]</span><span class="cm-string">(https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B01.png?raw=true)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">126</div></div><pre class=""><span style="padding-right: 0.1px;">Рис.18 Программа1</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">127</div></div><pre class=""><span style="padding-right: 0.1px;">2.Запускаем программу и видм что i в 4 строке i это переменная типа double и не равна 5:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">128</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">![]</span><span class="cm-string">(https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B02.png?raw=true)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">129</div></div><pre class=""><span style="padding-right: 0.1px;">Рис 18 Программа2</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">130</div></div><pre class=""><span style="padding-right: 0.1px;">3.На следующей строке i это 5.000:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">131</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">![]</span><span class="cm-string">(https://github.com/Troislit/Laboratornye/blob/master/%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%B0%D0%B1/%D0%A0%D0%B8%D1%81%2018.%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B03.png?raw=true)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">132</div></div><pre class=""><span style="padding-right: 0.1px;">Рис.18 Программа 3</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">133</div><div class="CodeMirror-gutter-elt" style="left: 40px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-header cm-header-3">###Вывод:</span></span></pre></div><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="left: -50px; width: 50px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 22px;">134</div></div><pre class=""><span style="padding-right: 0.1px;">В данной лабораторной работе я смог больше узнать о программе VisualStudio,поближе познакомиться с ее функциями и возможностями.Мы выяснили какого типа файлы использует VisualStudio для хранения проектов.Я получил знания о том как отлаживать свой код построчно,попутно мониторя то как меняются переменные с течением времени.</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 24px; width: 1px; top: 5994px;"></div><div class="CodeMirror-gutters" style="height: 6018px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 30px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div><a href="javascript:;" class="fa fa-close editormd-preview-close-btn"></a>
+
+<div class="editormd-preview" style="display: block; width: 680px; top: 43px; height: 538px;"><div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;"><p>МИНИСТЕРСТВО НАУКИ  И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ<br>Федеральное государственное автономное образовательное учреждение высшего образования<br>“КРЫМСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ им. В. И. ВЕРНАДСКОГО”<br>ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ<br>Кафедра компьютерной инженерии и моделирования<br><br><br><br>​</p>
+<h3 id="h3--1-br-"><a name="Отчёт по лабораторной работе № 1&lt;br&gt;&lt;/a&gt; по дисциплине “Программирование”" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Отчёт по лабораторной работе № 1<br> по дисциплине “Программирование”</h3><p><br><br>​<br>студента 1 курса группы ИВТ-191(2)<br>Тройслит Андрея Александровича<br>направления подготовки 09.03.01”Информатика и Вычислительная техника”<br><br><br>​</p>
+<p></p><p></p><p></p><p></p><p></p><p></p><p></p><br><br><table>
+<tbody><tr><td>Научный руководитель<br> старший преподаватель кафедры<br> компьютерной инженерии и моделирования</td>
+<td>(оценка)</td>
+<td>Чабанов В.В.</td></tr></tbody></table><br><br><br><br>​<br>Симферополь, 2019<p></p>
+<h1 id="h1--"><a name="Ход работы" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Ход работы</h1><h4 id="h4-1-c-"><a name="1.Как создать консольное приложение C++." class="reference-link"></a><span class="header-link octicon octicon-link"></span>1.Как создать консольное приложение C++.</h4><p>Для начала необходимо открыть Visual Studio:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.1 Открытая VS.png" alt=""><br>Рис.1Открытая VS.</p>
+<p>Далее выбираем “Создание проекта”:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.2 Начало.png" alt=""><br>Рис.2 Начало.</p>
+<p>Далее выбираем “Консольное приложение” поскольку в данной лабораторной работе необходимо именно это.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.3 Консольное приложение.png" alt=""><br>Рис.3 Консольное приложение.<br>Далее щелкаем на “Поместить решение и проект в одном каталоге”,если хотим чтобы все необходимые файлы были в 1 папке,потом жмем кнопку “Создать”.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.4 Создание консольного проекта..png" alt=""><br>Рис.4 Создание консольного проекта.</p>
+<h4 id="h4-2-1-"><a name="2.1Как изменить цветовую схему (оформление) среды?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2.1Как изменить цветовую схему (оформление) среды?</h4><p>1.Заходим в Visual Studio.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.5 Пустая VS.png" alt=""><br>Рис.5 Открытая VS<br>2.Далее выбираем вкладку “Средства”-&gt;”Параметры”.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.6 Переход к графике.png" alt=""><br>Рис.6 Переход к графике.<br>Далее,в открывшемся окне выбираем: “Окружение”-&gt;”Общие”-&gt;”Цветовая схема”, и уже меняем цветовую схему в тех тонах которые на подходят.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.7 Смена цв.схемы.png" alt=""><br>Рис.7Смена цв.схемы.</p>
+<h4 id="h4-3-vs-"><a name="3. Как закомментировать/раскомментировать блок кода средствами VS;" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3. Как закомментировать/раскомментировать блок кода средствами VS;</h4><p>1.Для того чтобы закомментировать\раскомментировать блок кода,необходимо:открыть проект:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.8 Открытый проект.png" alt=""><br>Рис.8 Открытый проект.<br>2.Для того чтобы закомментировать часть кода необходимо поставить символ ‘/+(Shift+8)’  и ‘(Shift+8)+/‘ где должно заканчиваться.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.9 1.Комм..png" alt=""><br>Рис.9 1.Комм.<br>3.Либо можно возпользоваться “горячими” клавишами: Ctrl+K,Ctrl+C.Результат от этого не измениться.<br>4.Для того чтобы закомментировать только 1 строку необходимо поставить символ ‘//‘  тогда все что находится в этой строке далее,будет закомментированно<br><img src="./Editor.md - Open source online Markdown editor._files/Рис. 9.1 2.Комм..png" alt=""><br>Рис.9.1 2.Комм.</p>
+<h4 id="h4-4-windows-vs-"><a name="4. Как открыть в проводнике Windows папку с проектом средствами VS?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>4. Как открыть в проводнике Windows папку с проектом средствами VS?</h4><p>1.Открываем обозреватель решений  находим проект который нам надо найти в проводнике Windows.В моем случае это был ConsoleApplication1.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.11 Обозреватель решений.png" alt=""><br>Рис.11 Обозреватель решений<br>2.Щелкаем ПКМ по нашему проекту и выбираем “Открыть папку в проводнике”<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.12 Обозреватель решений№2.png" alt=""><br>Рис.11 Обозреватель решений№2</p>
+<h4 id="h4-5-vs-"><a name="5.Какое расширение файла-проекта используется в VS?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>5.Какое расширение файла-проекта используется в VS?</h4><p>1.Для того чтобы посмотреть какое расширение используется,необходимо открыть папку с проетом,как это сделать было сказано выше.Открываем папку:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.13 Папка с проектом.png" alt=""><br>Рис.13 Папка с проектом<br>2.Далее ПКМ по файлу с названием проекта ,в данном случае ‘Project1’,и жмем кнопку “Свойства”:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.13 Папка с проектом1.png" alt=""><br>Рис.13 Папка с проектом1<br>Как видно из свойтв файла-тип этого файла “Visual Studio Solution” что говорит о том,что данный файл для своего запуска требует программу Visual Studio<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.13 Папка с проектом2png.png" alt=""><br>Рис13.Папка с проектом2.</p>
+<h4 id="h4-6-2-"><a name="6.Как запустить код без отладки (не менее 2 способов)?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>6.Как запустить код без отладки (не менее 2 способов)?</h4><p>1.Первый способ-сочетание клавишей Ctrl+F5.<br>2.Второй способ-вручную:открываем “Отладка”-&gt;”Запуск без отладки”:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.14 Запуск без отладки..png" alt=""><br>Рис.14 Запуск без отладки.</p>
+<h4 id="h4-7-2-"><a name="7.Как запустить код в режиме отладки (не менее 2 способов)?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>7.Как запустить код в режиме отладки (не менее 2 способов)?</h4><p>1.Первый способ-клавишей F5.<br>2.Второй способ-вручную:открываем “Отладка”-&gt;”Начать отладку”.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.15 Запуск с отладкой..png" alt=""><br>Рис.15 Запуск с отладкой.</p>
+<h4 id="h4-8-breakpoint-"><a name="8. Как установить/убрать точку останова (breakpoint)?" class="reference-link"></a><span class="header-link octicon octicon-link"></span>8. Как установить/убрать точку останова (breakpoint)?</h4><p>1.Для того чтобы поставить точку brealpoint необходимо нажать ЛКМ по столбику слева от строчек кода,появится красный кружок,это означает что точка breakpoint установлена:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис.16.Установка breakpoint.png" alt=""><br>Рис.16 Установка breakpoint.</p>
+<h4 id="h4-9-"><a name="9.Создание программы." class="reference-link"></a><span class="header-link octicon octicon-link"></span>9.Создание программы.</h4><p>1.Создать программу со следующим кодом:</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;iostream&gt;</span></code></li><li class="L1"><code><span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L2"><code><span class="pln">    </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span></code></li><li class="L3"><code><span class="pln">    i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></code></li><li class="L4"><code><span class="pln">    std</span><span class="pun">::</span><span class="pln">cout </span><span class="pun">&lt;&lt;</span><span class="pln"> i</span><span class="pun">;</span></code></li><li class="L5"><code><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></code></li><li class="L6"><code><span class="pun">}</span></code></li></ol></pre><p>Рисунок:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 17.Программа.1.png" alt=""><br>Рис.17 Программа1<br>2.Далее устанавливаем breakpoint на 5 и 6 строке(в моем случае на 4 и 5):<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 17.Программа2.png" alt=""><br>Рис.17 Программа2<br>3.Далее запускаем программу и смотрим какие значения принимает переменная i в 4 и 5 строке:<br>В 4 строке i это переменная типа int равная -858993460:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 17.Программа3.png" alt=""><br>Рис.17 Программа3<br>В 6 строке i это int равная 5:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 17.Программа4.png" alt=""><br>Рис.17 Программа4</p>
+<h4 id="h4-10-9-"><a name="10.Выполните задание 9 изменив программу на следующую." class="reference-link"></a><span class="header-link octicon octicon-link"></span>10.Выполните задание 9 изменив программу на следующую.</h4><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;iostream&gt;</span></code></li><li class="L1"><code><span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L2"><code><span class="pln">    </span><span class="kwd">double</span><span class="pln"> i</span><span class="pun">;</span></code></li><li class="L3"><code><span class="pln">    i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></code></li><li class="L4"><code><span class="pln">    std</span><span class="pun">::</span><span class="pln">cout </span><span class="pun">&lt;&lt;</span><span class="pln"> i</span><span class="pun">;</span></code></li><li class="L5"><code><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></code></li><li class="L6"><code><span class="pun">}</span></code></li></ol></pre><p>1.Повторяем пункты 1-2 из задания 9.<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 18.Программа1.png" alt=""><br>Рис.18 Программа1<br>2.Запускаем программу и видм что i в 4 строке i это переменная типа double и не равна 5:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 18.Программа2.png" alt=""><br>Рис 18 Программа2<br>3.На следующей строке i это 5.000:<br><img src="./Editor.md - Open source online Markdown editor._files/Рис 18.Программа3.png" alt=""><br>Рис.18 Программа 3</p>
+<h3 id="h3--"><a name="Вывод:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Вывод:</h3><p>В данной лабораторной работе я смог больше узнать о программе VisualStudio,поближе познакомиться с ее функциями и возможностями.Мы выяснили какого типа файлы использует VisualStudio для хранения проектов.Я получил знания о том как отлаживать свой код построчно,попутно мониторя то как меняются переменные с течением времени.</p>
+</div></div>
+<div class="editormd-container-mask" style="display: none;"></div>
+<div class="editormd-mask" style="background-color: rgb(255, 255, 255); opacity: 0.1; z-index: 99998; display: none;"></div><div class="editormd-toolbar" style="display: block; position: fixed; width: 1360px; left: 85px;"><div class="editormd-toolbar-container"><ul class="editormd-menu"><li><a href="javascript:;" title="Undo(Ctrl+Z)" unselectable="on"><i class="fa fa-undo" name="undo" unselectable="on"></i></a></li><li><a href="javascript:;" title="Redo(Ctrl+Y)" unselectable="on"><i class="fa fa-repeat" name="redo" unselectable="on"></i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="Bold" unselectable="on"><i class="fa fa-bold" name="bold" unselectable="on"></i></a></li><li><a href="javascript:;" title="Strikethrough" unselectable="on"><i class="fa fa-strikethrough" name="del" unselectable="on"></i></a></li><li><a href="javascript:;" title="Italic" unselectable="on"><i class="fa fa-italic" name="italic" unselectable="on"></i></a></li><li><a href="javascript:;" title="Block quote" unselectable="on"><i class="fa fa-quote-left" name="quote" unselectable="on"></i></a></li><li><a href="javascript:;" title="Words first letter convert to uppercase" unselectable="on"><i class="fa" name="ucwords" style="font-size:20px;margin-top: -3px;">Aa</i></a></li><li><a href="javascript:;" title="Selection text convert to uppercase" unselectable="on"><i class="fa fa-font" name="uppercase" unselectable="on"></i></a></li><li><a href="javascript:;" title="Selection text convert to lowercase" unselectable="on"><i class="fa" name="lowercase" style="font-size:24px;margin-top: -10px;">a</i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="Heading 1" unselectable="on"><i class="fa editormd-bold" name="h1" unselectable="on">H1</i></a></li><li><a href="javascript:;" title="Heading 2" unselectable="on"><i class="fa editormd-bold" name="h2" unselectable="on">H2</i></a></li><li><a href="javascript:;" title="Heading 3" unselectable="on"><i class="fa editormd-bold" name="h3" unselectable="on">H3</i></a></li><li><a href="javascript:;" title="Heading 4" unselectable="on"><i class="fa editormd-bold" name="h4" unselectable="on">H4</i></a></li><li><a href="javascript:;" title="Heading 5" unselectable="on"><i class="fa editormd-bold" name="h5" unselectable="on">H5</i></a></li><li><a href="javascript:;" title="Heading 6" unselectable="on"><i class="fa editormd-bold" name="h6" unselectable="on">H6</i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="Unordered list" unselectable="on"><i class="fa fa-list-ul" name="list-ul" unselectable="on"></i></a></li><li><a href="javascript:;" title="Ordered list" unselectable="on"><i class="fa fa-list-ol" name="list-ol" unselectable="on"></i></a></li><li><a href="javascript:;" title="Horizontal rule" unselectable="on"><i class="fa fa-minus" name="hr" unselectable="on"></i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="Link" unselectable="on"><i class="fa fa-link" name="link" unselectable="on"></i></a></li><li><a href="javascript:;" title="Reference link" unselectable="on"><i class="fa fa-anchor" name="reference-link" unselectable="on"></i></a></li><li><a href="javascript:;" title="Image" unselectable="on"><i class="fa fa-picture-o" name="image" unselectable="on"></i></a></li><li><a href="javascript:;" title="Code inline" unselectable="on"><i class="fa fa-code" name="code" unselectable="on"></i></a></li><li><a href="javascript:;" title="Preformatted text / Code block (Tab indent)" unselectable="on"><i class="fa fa-file-code-o" name="preformatted-text" unselectable="on"></i></a></li><li><a href="javascript:;" title="Code block (Multi-languages)" unselectable="on"><i class="fa fa-file-code-o" name="code-block" unselectable="on"></i></a></li><li><a href="javascript:;" title="Tables" unselectable="on"><i class="fa fa-table" name="table" unselectable="on"></i></a></li><li><a href="javascript:;" title="Datetime" unselectable="on"><i class="fa fa-clock-o" name="datetime" unselectable="on"></i></a></li><li><a href="javascript:;" title="Emoji" unselectable="on"><i class="fa fa-smile-o" name="emoji" unselectable="on"></i></a></li><li><a href="javascript:;" title="HTML Entities" unselectable="on"><i class="fa fa-copyright" name="html-entities" unselectable="on"></i></a></li><li><a href="javascript:;" title="Page break" unselectable="on"><i class="fa fa-newspaper-o" name="pagebreak" unselectable="on"></i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="" unselectable="on"><i class="fa fa-terminal" name="goto-line" unselectable="on"></i></a></li><li><a href="javascript:;" title="Unwatch" unselectable="on"><i class="fa fa-eye-slash" name="watch" unselectable="on"></i></a></li><li><a href="javascript:;" title="HTML Preview (Press Shift + ESC exit)" unselectable="on"><i class="fa fa-desktop" name="preview" unselectable="on"></i></a></li><li><a href="javascript:;" title="Fullscreen (Press ESC exit)" unselectable="on"><i class="fa fa-arrows-alt" name="fullscreen" unselectable="on"></i></a></li><li><a href="javascript:;" title="Clear" unselectable="on"><i class="fa fa-eraser" name="clear" unselectable="on"></i></a></li><li><a href="javascript:;" title="Search" unselectable="on"><i class="fa fa-search" name="search" unselectable="on"></i></a></li><li class="divider" unselectable="on">|</li><li><a href="javascript:;" title="Help" unselectable="on"><i class="fa fa-question-circle" name="help" unselectable="on"></i></a></li><li><a href="javascript:;" title="About Editor.md" unselectable="on"><i class="fa fa-info-circle" name="info" unselectable="on"></i></a></li></ul></div></div><div class="editormd-dialog editormd-image-dialog" id="editormd-image-dialog-1573747287141" style="display: none; z-index: 99999; width: 380px; height: 254px; top: 234px; left: 575px;"><div class="editormd-dialog-header" style="cursor: move;"><strong class="editormd-dialog-title">Image</strong></div><a href="javascript:;" class="fa fa-close editormd-dialog-close"></a><div class="editormd-dialog-container"><div class="editormd-form"><label>Address</label><input type="text" data-url=""><br><label>Title</label><input type="text" value="" data-alt=""><br><label>Link</label><input type="text" value="http://" data-link=""><br></div><div class="editormd-dialog-footer"><button class="editormd-btn editormd-enter-btn">Enter</button><button class="editormd-btn editormd-cancel-btn">Cancel</button></div></div><div class="editormd-dialog-mask editormd-dialog-mask-bg"></div><div class="editormd-dialog-mask editormd-dialog-mask-con"></div></div><div class="editormd-dialog editormd-preformatted-text-dialog" style="display: none; z-index: 100001; width: 780px; height: 540px; top: 91px; left: 375px;"><div class="editormd-dialog-header" style="cursor: move;"><strong class="editormd-dialog-title">Preformatted text / Codes</strong></div><a href="javascript:;" class="fa fa-close editormd-dialog-close"></a><div class="editormd-dialog-container"><textarea placeholder="coding now...." style="display:none;"></textarea><div class="CodeMirror cm-s- CodeMirror-wrap" style="float: none; margin: 0px 0px 5px; border: 1px solid rgb(221, 221, 221); font-size: 13px; width: 100%; height: 410px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 121px; left: 134.413px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 48px; margin-bottom: -6px; border-right-width: 24px; min-height: 170px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>16</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 85.4125px; top: 116px; height: 23.2px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;">#include <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">iostream</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre class=""><span style="padding-right: 0.1px;">int main() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  double i;</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  i = 5;</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  std::cout <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag cm-error">&lt; i;</span></span></pre></div><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  return 0;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -48px; width: 48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 24px; width: 1px; top: 170px;"></div><div class="CodeMirror-gutters" style="height: 429px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div><div class="editormd-dialog-footer"><button class="editormd-btn editormd-enter-btn">Enter</button><button class="editormd-btn editormd-cancel-btn">Cancel</button></div></div><div class="editormd-dialog-mask editormd-dialog-mask-bg"></div><div class="editormd-dialog-mask editormd-dialog-mask-con"></div></div></div>                        
+                    </div>
+                </div>
+            </header>
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-8">
+                        <a name="start"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1 class="pui-text-left">Example</h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <div class="code-box">
+                                    <pre class="prettyprint lang-html example-code prettyprinted" style=""><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"editormd/css/editormd.css"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"test-editor"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">display</span><span class="pun">:</span><span class="pln">none</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">### Editor.md
+
+**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror &amp; jQuery &amp; Marked.
+    </span><span class="tag">&lt;/textarea&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"editormd/editormd.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+    $</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> editor </span><span class="pun">=</span><span class="pln"> editormd</span><span class="pun">(</span><span class="str">"test-editor"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="com">// width  : "100%",</span><span class="pln">
+            </span><span class="com">// height : "100%",</span><span class="pln">
+            path   </span><span class="pun">:</span><span class="pln"> </span><span class="str">"editormd/lib/"</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></pre>
+                                    <span class="copy-btn" data-clipboard-text="&lt;link rel=&quot;stylesheet&quot; href=&quot;editormd/css/editormd.css&quot; /&gt;
+&lt;div id=&quot;test-editor&quot;&gt;
+    &lt;textarea style=&quot;display:none;&quot;&gt;### Editor.md
+
+**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror &amp; jQuery &amp; Marked.
+    &lt;/textarea&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;editormd/editormd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function() {
+        var editor = editormd(&quot;test-editor&quot;, {
+            // width  : &quot;100%&quot;,
+            // height : &quot;100%&quot;,
+            path   : &quot;editormd/lib/&quot;
+        });
+    });
+&lt;/script&gt;">Copy</span>
+                                </div>
+                                <p class="pui-text-right"><a href="http://editor.md.ipandao.com/examples/" class="link pui-text-blue">More Examples &gt;&gt;</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-4">
+                        <div class="pui-card-title">
+                            <h1 class="pui-text-left">Features</h1>
+                        </div>
+                        <div class="pui-card-box">
+                            <ul>
+                                <li>Support Standard Markdown / CommonMark and GFM(GitHub Flavored Markdown);</li>
+                                <li>Full-featured: Real-time Preview, <a href="http://editor.md.ipandao.com/examples/image-upload.html" class="link pui-text-blue">Image (cross-domain) upload</a>, Preformatted text/Code blocks/Tables insert, Code fold, Search replace, Read only, Themes, Multi-languages, L18n, HTML entities, Code syntax highlighting...;</li>
+                                <li>Markdown Extras : Support <a href="http://editor.md.ipandao.com/examples/toc.html" class="link pui-text-blue">ToC (Table of Contents)</a>, <a href="http://editor.md.ipandao.com/examples/emoji.html" class="link pui-text-blue">Emoji</a>, <a href="http://editor.md.ipandao.com/examples/task-lists.html" class="link pui-text-blue">Task lists</a>, <a href="http://editor.md.ipandao.com/examples/@links.html" class="link pui-text-blue">@Links</a>...;</li>
+                                <li>Support <a href="http://editor.md.ipandao.com/examples/katex.html" class="link pui-text-blue">TeX (LaTeX expressions, Based on KaTeX)</a>, <a href="http://editor.md.ipandao.com/examples/flowchart.html" class="link pui-text-blue">Flowchart</a> and <a href="http://editor.md.ipandao.com/examples/sequence-diagram.html" class="link pui-text-blue">Sequence Diagram</a> of Markdown extended syntax;</li>
+                                <li>Support identification, interpretation, fliter of the HTML tags;</li>
+                                <li>Support AMD/CMD (Require.js &amp; Sea.js) Module Loader, and Custom/define editor plugins;</li>
+                                <li>Compatible with all major browsers (IE8+), compatible Zepto.js and iPad;</li>
+                                <li>Support Custom theme styles;</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">
+                        <a name="download"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1>Download &amp; install</h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p>Latest version: v1.5.0，Update: 2015-06-09</p>
+                                <p><a href="https://github.com/pandao/editor.md/archive/master.zip" class="pui-btn pui-btn-secondary"><i class="fa fa-lg fa-github"></i> Github download</a></p>
+                                <br>
+                                <p><img src="./Editor.md - Open source online Markdown editor._files/editor.md.svg"> <img src="./Editor.md - Open source online Markdown editor._files/editor.md(1).svg"></p>
+                                <br>
+                                <p>Or NPM install:</p>
+                                <p><code>npm install editor.md</code></p>
+                                <p><img src="./Editor.md - Open source online Markdown editor._files/editor.md(2).svg"></p>
+                                <p>Or Bower install: </p>
+                                <p><code>bower install editor.md</code></p>
+                                <p><img src="./Editor.md - Open source online Markdown editor._files/editor.md(3).svg"></p>
+                                <br>
+                                <p><strong class="pui-text-md">Change logs: </strong></p>
+                                <p><a href="https://github.com/pandao/editor.md/blob/master/CHANGE.md" class="pui-link" target="_blank">CHANGES</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">                        
+                        <a name="dependents"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1>Dependents</h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p>Projects :</p>
+                                <ul>
+                                    <li>
+                                        <a href="http://codemirror.net/" title="CodeMirror" target="_blank">CodeMirror</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/chjj/marked" title="marked" target="_blank">marked</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://jquery.com/" title="jQuery" target="_blank">jQuery</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://fontawesome.io/" title="FontAwesome" target="_blank">FontAwesome</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/sindresorhus/github-markdown-css" title="github-markdown.css" target="_blank">github-markdown.css</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://khan.github.io/KaTeX/" title="KaTeX" target="_blank">KaTeX</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://raphaeljs.com/" title="Rephael.js" target="_blank">Rephael.js</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://code.google.com/p/google-code-prettify/" title="prettify.js" target="_blank">prettify.js</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://adrai.github.io/flowchart.js/" title="flowchart.js" target="_blank">flowchart.js</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://bramp.github.io/js-sequence-diagrams/" title="sequence-diagram.js" target="_blank">sequence-diagram.js</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/pandao/prefixes.scss" title="Prefixes.scss" target="_blank">Prefixes.scss</a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <p>Development tools :</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://code.visualstudio.com/" title="Visual Studio Code" target="_blank">Visual Studio Code</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://sass-lang.com/" title="Sass/Scss" target="_blank">Sass/Scss</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://gulpjs.com/" title="Gulp.js" target="_blank">Gulp.js</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pui-grid-xs-12 pui-grid-sm-4 pui-grid-md-4">                
+                        <a name="license"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1>License</h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <p>Editor.md follows the <a href="https://github.com/pandao/editor.md/blob/master/LICENSE" class="pui-link" target="_blank">MIT License</a>, Anyone can freely use.</p>
+                                <br>
+                                <p><a href="https://github.com/pandao/editor.md/issues/new" class="pui-btn pui-btn-secondary" target="_blank" title="Submit bugs or new issues"><i class="fa fa-lg fa-github"></i> Submit bugs or new issues</a></p>
+                                <p><img src="./Editor.md - Open source online Markdown editor._files/editor.md(4).svg"></p>
+                                <div class="github-buttons">
+                                    <p>Fork me on Github :</p>
+                                    <p><iframe src="./Editor.md - Open source online Markdown editor._files/github-btn.html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></p>
+                                    <p><iframe src="./Editor.md - Open source online Markdown editor._files/github-btn(1).html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></p>
+                                    <p><iframe src="./Editor.md - Open source online Markdown editor._files/github-btn(2).html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+</p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <div class="pui-grid pui-layout pui-layout-fixed pui-layout-fixed-1200 page-content">
+                <div class="pui-row">
+                    <div class="pui-grid-xs-12">
+                        <a name="users"></a>
+                        <div class="pui-card pui-card-simple">
+                            <div class="pui-card-title">
+                                <h1 class="pui-text-center">Users</h1>
+                            </div>
+                            <div class="pui-card-box">
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.alipay.com/" target="_blank" title="Alipay">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/alipay.png" alt="Alipay">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.alibaba.com/" target="_blank" title="Alibaba">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/alibaba.png" alt="Alibaba">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.huawei.com/" target="_blank" title="Huawei">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/huawei.png" alt="Huawei">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://work.weixin.qq.com/" target="_blank" title="WeChat Work">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/wechat-work.png" alt="WeChat Work">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.jd.com/" target="_blank" title="JD.com">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/jd.png" alt="JD.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.360.cn/" target="_blank" title="360">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/360.png" alt="360">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.4399.com/" target="_blank" title="4399">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/4399.png" alt="4399">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.oschina.net/" target="_blank" title="OSChina.net">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/oschina.png" alt="OSChina.net">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.youdao.com/" target="_blank" title="Youdao">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/youdao.jpg" alt="Youdao">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.yy.com/" target="_blank" title="YY.com">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/yy.jpg" alt="YY.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.jumei.com/" target="_blank" title="JUMEI">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/jumei.jpg" alt="JUMEI">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.9you.com/" target="_blank" title="9you.com">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/9you.jpg" alt="9you.com">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.csdn.net/" target="_blank" title="CSDN">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/csdn.jpg" alt="CSDN">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mi.com/" target="_blank" title="Xiaomi MI.com">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/xiaomi.png" alt="Xiaomi MI.com">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.meizu.com/" target="_blank" title="MEIZU">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/meizu.png" alt="MEIZU">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://golangtc.com/" target="_blank" title="Golang Chinese community">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/golangtc.jpg" alt="Golang Chinese community">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="pui-menu pui-menu-inline case-list">
+                                    <li>
+                                        <a href="https://www.nio.cn/" target="_blank" title="NIO">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/nio.png" alt="NIO">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://edn.egret.com/cn/" target="_blank" title="Egret HTML5 Game Engine">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/egret-engine.jpg" alt="Egret HTML5 Game Engine">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://bbs.pkbigdata.com/" target="_blank" title="DataCastle">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/datacastle.jpg" alt="DataCastle">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.showdoc.cc/" target="_blank" title="ShowDoc：一个非常适合IT团队的在线API文档、技术文档工具">
+                                            <img src="./Editor.md - Open source online Markdown editor._files/showdoc.png" alt="ShowDoc">
+                                        </a>
+                                    </li>     
+                                </ul>
+                                <br>
+                                <p class="pui-text-center"><a href="mailto:editor.md@ipandao.com" class="pui-text-blue"><i class="fa fa-envelope-o"></i> Contact Us:</a> editor.md@ipandao.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="pui-hr pui-layout-fixed pui-layout-fixed-1200">
+            <footer class="pui-layout pui-layout-fixed pui-layout-fixed-1200 page-footer pui-clear">
+                <h1 class="pui-text-lg pui-right pui-text-center">
+                    <p>
+                        <img src="./Editor.md - Open source online Markdown editor._files/editormd-logo-64x64.png">
+                        <span class="pui-block pui-text-gray pui-text-normal">Editor.md</span>
+                    </p>
+                </h1>
+                <p>Copyright © 2015-2019 <a href="https://github.com/pandao/editor.md" class="pui-link" target="_blank">Editor.md</a>, <a href="https://github.com/pandao/editor.md/blob/master/LICENSE" class="pui-link" target="_blank">MIT license.</a></p>
+                <p>Design &amp; Develop By: <a href="https://github.com/pandao" class="pui-link" target="_blank">Pandao</a>
+                 <a href="https://github.com/pandao" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+                 <a href="https://twitter.com/ipandao" target="_blank"><i class="fa fa-twitter fa-lg pui-text-blue"></i></a>
+                 <a href="http://weibo.com/ipandao" target="_blank"><i class="fa fa-weibo fa-lg pui-text-red"></i></a>&nbsp;&nbsp; 
+                 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254310986'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1254310986%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1254310986"><a href="https://www.cnzz.com/stat/website.php?web_id=1254310986" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./Editor.md - Open source online Markdown editor._files/pic.gif"></a></span><script src="./Editor.md - Open source online Markdown editor._files/stat.php" type="text/javascript"></script><script src="./Editor.md - Open source online Markdown editor._files/core.php" charset="utf-8" type="text/javascript"></script>
+                </p>
+            </footer>
+        </div>
+        
+        <script src="./Editor.md - Open source online Markdown editor._files/jquery.min.js.загружено"></script>
+
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="https://pandao.github.io/dist/js/planeui.patch.ie8.min.js"></script>
+        <![endif]-->
+
+        <!--[if lt IE 10]>
+        <script type="text/javascript" src="https://pandao.github.io/dist/js/planeui.patch.ie9.min.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="./Editor.md - Open source online Markdown editor._files/planeui.js.загружено"></script>
+        <script src="./Editor.md - Open source online Markdown editor._files/editormd.min.js.загружено"></script>   
+        <script src="./Editor.md - Open source online Markdown editor._files/clipboard.min.js.загружено"></script>
+        <script src="./Editor.md - Open source online Markdown editor._files/en.js.загружено"></script>
+        <script src="./Editor.md - Open source online Markdown editor._files/index-en.js.загружено"></script>
+    
+
+<i title="Raphaël Colour Picker" style="display: none; color: white;"></i></body></html>
